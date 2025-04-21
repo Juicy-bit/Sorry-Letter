@@ -11,11 +11,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       text-align: center;
       padding: 20px;
-      overflow: hidden;
+      overflow: hidden; /* Scroll disabled at first */
     }
 
     .envelope {
@@ -24,7 +24,7 @@
       background-color: #d63384;
       position: relative;
       cursor: pointer;
-      margin-top: 20px;
+      margin-top: 40px;
     }
 
     .envelope:before, .envelope:after {
@@ -151,6 +151,7 @@ I know I can’t promise that I will never mess up again, but I promise I will t
       envelope.style.display = "none";
       hint.style.display = "none";
       letter.style.display = "block";
+      document.body.style.overflow = "auto"; // enable scroll
       music.play().catch(() => {
         alert("Please tap again to allow the music 🎵");
       });
