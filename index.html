@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Christy 💌</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: Georgia, serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .envelope {
+      width: 200px;
+      height: 120px;
+      background-color: #d63384;
+      position: relative;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .envelope:before, .envelope:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+    .envelope:before {
+      top: 0;
+      left: 0;
+      border-width: 0 100px 60px 100px;
+      border-color: transparent transparent #ff69b4 transparent;
+    }
+    .envelope:after {
+      bottom: 0;
+      left: 0;
+      border-width: 60px 100px 0 100px;
+      border-color: #ff69b4 transparent transparent transparent;
+    }
+    .click-hint {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #666;
+    }
+    .letter {
+      display: none;
+      max-width: 800px;
+      background-color: #fff;
+      margin-top: 30px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      line-height: 1.8;
+      font-size: 16px;
+      white-space: pre-wrap;
+    }
+    h1 {
+      color: #d63384;
+    }
+    .signature {
+      text-align: right;
+      font-style: italic;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="envelope" id="envelope"></div>
+  <div class="click-hint" id="hint">Tap the letter to open 💌</div>
+
+  <div class="letter" id="letter">
+    <h1>Dear Christy,</h1>
+    <p>
+I’m sorry for not putting myself in your shoes. I should have known that you were trying hard too. I’m sorry for repeating the same mistakes over and over again. Not talking to you made me realize how attached I actually am to you. I can’t even sleep without your sleep call. It made me realize I can’t focus, knowing you’re not talking to me. It made me realize that I truly need you in my life.
+
+I know what I did that night was wrong—I realize it now. I shouldn’t have forced you to post that WhatsApp status or acted like a jerk and sulked. I shouldn’t have suggested you go home after I made you stay one more night. I truly realize now that it was all my fault. You know I’m bad at handling these things, so next time I act like this again, please slap me as hard as you can and make me realize what I did was wrong.
+
+I’m sorry—I truly am. I’m not good with words, especially when it comes to making it up to someone. This is my way of making it up to you by doing what I know best—computer stuff.
+
+I know I can’t promise that I will never mess up again, but I promise I will try my best to think before I speak next time. Losing you once was already too much—I don’t think I could bear losing you again.
+    </p>
+    <div class="signature">
+      With all my love,<br />
+      Your imperfect but loving partner 🥺
+    </div>
+  </div>
+
+  <audio id="bg-music" src="love_is_gone.mp3" preload="auto" loop></audio>
+
+  <script>
+    const envelope = document.getElementById("envelope");
+    const letter = document.getElementById("letter");
+    const hint = document.getElementById("hint");
+    const music = document.getElementById("bg-music");
+
+    envelope.addEventListener("click", () => {
+      envelope.style.display = "none";
+      hint.style.display = "none";
+      letter.style.display = "block";
+      music.play().catch(() => {
+        alert("Please tap again to allow the music 🎵");
+      });
+    });
+  </script>
+
+</body>
+</html>
